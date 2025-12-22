@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔗 URL Shortener – Next.js & MongoDB
 
-## Getting Started
+A modern URL shortener web application built using **Next.js App Router**, **MongoDB**, and **Clerk authentication**.  
+The platform allows users to generate short URLs with click tracking, expiration control, and access-based limitations for guests, signed-in users, and premium users.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- ✂️ Create short URLs from long links
+- 🔁 Automatic redirection using short codes
+- 📊 Click tracking and last accessed time
+- ⏳ URL expiration support
+- 👤 Tier-based access control:
+  - Guest users (IP-based limits)
+  - Signed-in users (extended validity)
+  - Premium users (longest validity)
+- 🔐 Authentication using **Clerk (Clerk ID instead of passwords)**
+- 🛡️ Abuse prevention using IP rate limiting
+- 📱 Responsive UI using **Tailwind CSS + shadcn/ui**
+- ⚡ Built on **Next.js 16 App Router**
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧱 Tech Stack
 
-## Learn More
+| Layer | Technology |
+|-----|-----------|
+| Frontend | Next.js 16, React |
+| Styling | Tailwind CSS, shadcn/ui |
+| Backend | Next.js Server Components & API Routes |
+| Database | MongoDB with Mongoose |
+| Auth | Clerk |
+| Utilities | NanoID / Crypto |
+| Deployment Ready | Yes |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
+app/
+├── (auth)/ # Clerk auth routes
+├── [shortCode]/ # Dynamic redirect route
+│ └── page.jsx
+├── api/
+│ └── shorten/
+│ └── route.js
+├── dashboard/ # User dashboard
+├── page.js # Landing page
+└── layout.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+lib/
+├── config/
+│ └── db.js # MongoDB connection
+├── models/
+│ ├── Url.model.js
+│ └── User.model.js
+├── getClientIp.js
+├── checkGuestLimit.js
+└── getCurrentUser.js
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+components/
+├── Header.jsx
+├── Footer.jsx
+└── UrlShortenerForm.jsx
