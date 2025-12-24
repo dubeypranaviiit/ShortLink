@@ -1,6 +1,5 @@
 import Link from "next/link"
-import { Github, Link2, Twitter } from "lucide-react"
-
+import {  Link2 } from "lucide-react"
 export default function Footer() {
   return (
     <footer className="mt-20 border-t border-border bg-background">
@@ -61,34 +60,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div>
-            <h3 className="mb-4 font-semibold text-foreground">
-              Connect
-            </h3>
-            <div className="flex gap-4">
-              <Link href="#" className="text-muted-foreground hover:text-accent">
-                <Github className="h-5 w-5" />
-                <span className="sr-only">GitHub</span>
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-accent">
-                <Twitter className="h-5 w-5" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-border pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">
-            Built with Next.js and MongoDB
-          </p>
-          <div className="flex gap-6 text-sm text-muted-foreground">
-            <Link href="#" className="hover:text-accent">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-accent">
-              Terms of Service
-            </Link>
-          </div>
+          
         </div>
       </div>
     </footer>

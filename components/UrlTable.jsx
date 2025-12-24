@@ -1,18 +1,22 @@
 "use client"
-
 import { useEffect, useState } from "react"
-
 export default function UrlTable() {
   const [urls, setUrls] = useState([])
+useEffect(() => {
+  async function fetchUrls() {
+    const res = await fetch("/api/my-urls", {
+      credentials: "include",
+    })
 
-  useEffect(() => {
-    async function fetchUrls() {
-      const res = await fetch("/api/my-urls")
-      const data = await res.json()
-      setUrls(data || [])
-    }
-    fetchUrls()
-  }, [])
+    if (!res.ok) return
+
+    const data = await res.json()
+    setUrls(data || [])
+  }
+
+  fetchUrls()
+}, [])
+
 
   if (!urls.length) {
     return (

@@ -14,6 +14,7 @@ export default function DashboardPage() {
       <div className="mt-6">
         <UrlTable />
       </div>
+      
     </div>
   )
 }

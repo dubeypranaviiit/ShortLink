@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {}, // explicitly disable turbopack
+  turbopack: {}, 
   webpack: (config) => config,
    reactCompiler: true,
 }
